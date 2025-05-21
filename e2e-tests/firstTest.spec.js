@@ -1,13 +1,13 @@
 import {test} from '@playwright/test';
 
 
-test.beforeEach (async ({page}) => {
+/*test.beforeEach (async ({page}) => {
     await page.goto('http://localhost:4200/')
     await page.getByText('Forms').click()
     await page.getByText('Form Layouts').click()
-})
+})*/
 
-test('Locator syntax rules', async({page}) => {
+/*test('Locator syntax rules', async({page}) => {
 
 //by Tag name
 await page.locator('input').first().click()
@@ -27,20 +27,21 @@ page.locator('["input-full-width size-medium status-basic shape-rectangle nb-tra
 //combine different selectors
 page.locator('input[placeholder="Email"] [nbinput]')
 
-})
+})*/
 
 
-test('User facing locators', async ({page}) => {
+/*test('User facing locators', async ({page}) => {
     await page.getByRole('textbox',{name:"Email"}).first().click()
     await page.getByRole('button', {name:"Sign in"}).first().click()
 
     await page.getByLabel('Email').first().click()
 
     await page.getByPlaceholder('Jane Doe').click()
-})
+})*/
 
-test.beforeEach (async ({page}) => {
-    await page.goto('https://deepstats.feedconstruct.com/ph/dashboard')
-    await page.getByRole('button',{name:"Teams"}).first().click()
-    
-})
+test('navigate to Players page', async ({ page }) => {
+  await page.goto('https://deepstats.feedconstruct.com/am/dashboard');
+  await page.waitForTimeout(5000);
+  await page.getByText('Players', { exact: true }).click();
+
+});
